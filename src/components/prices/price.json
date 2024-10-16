@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_prices_prices",
+  "info": {
+    "displayName": "price",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "june": {
+      "type": "biginteger"
+    },
+    "july": {
+      "type": "biginteger"
+    },
+    "august": {
+      "type": "biginteger"
+    },
+    "september": {
+      "type": "biginteger"
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "checks",
+  "info": {
+    "singularName": "check",
+    "pluralName": "checks",
+    "displayName": "Booking",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "roomId": {
+      "type": "integer"
+    },
+    "phone": {
+      "type": "biginteger"
+    },
+    "users_permissions_users": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "plugin::users-permissions.user",
+      "mappedBy": "booking"
+    },
+    "cleaning": {
+      "type": "boolean",
+      "default": false
+    },
+    "meet": {
+      "type": "boolean"
+    },
+    "person": {
+      "type": "string"
+    },
+    "checkIn": {
+      "type": "string"
+    },
+    "checkOut": {
+      "type": "string"
+    }
+  }
+}
