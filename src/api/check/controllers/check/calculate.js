@@ -9,7 +9,7 @@ function calculateDays(checkIn, checkOut) {
     calcEarlyCheckIn(checkIn, data)
     calcLateCheckOut(checkOut, data)
     calcFullDays(checkIn, checkOut, data)
-
+    
     return data
 }
 
@@ -42,7 +42,7 @@ function calcEarlyCheckIn(checkIn, data) {
 function calcLateCheckOut(checkOut, data) {
     if (hourOf(checkOut) > 12) {
         data.borders ? data.borders += "/Поздний выезд" : data.borders = "Поздний выезд"
-        data[monthOf(checkOut)] += 0.5
+        data[monthOf(checkOut)] ?  data[monthOf(checkOut)] += 0.5 : data[monthOf(checkOut)] = 0.5
         return data
     }
     return
@@ -71,5 +71,9 @@ function hourOf(date) {
 }
 
 function amountDaysOfBooking(checkIn, checkOut) {
-    return parseInt((new Date(checkOut).getTime() - new Date(checkIn).getTime()) / 86400000)
+    return normalize(checkOut) - normalize(checkIn)
+}
+
+function normalize(date) {
+    return new Date(new Date(date).setHours(14)).setMinutes(0)/86400000
 }
